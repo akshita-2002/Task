@@ -30,3 +30,12 @@ Delete From Enrollments
 Where Student_ID=1 AND Course_ID=2;
 ```
 ![alt text](image-2.png)
+
+#### QUESTION 5
+Update a course to assign a specific teacher using the "Courses" table.
+```sql
+Update Courses
+Set Teacher_ID=3 
+where Course_ID = 1;
+```
+![alt text](image-3.png)
