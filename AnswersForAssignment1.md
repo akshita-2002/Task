@@ -48,3 +48,13 @@ From Payments
 Group By Student_ID;
 ```
 ![alt text](image-4.png)
+
+#### QUESTION 7
+Retrieve a list of courses along with the count of students enrolled in each.
+```sql
+Select c.Course_Name , Count(e.Student_ID) as Count_of_Students
+From Courses c Inner Join Enrollments e
+On c.Course_ID=e.Course_ID
+group by c.Course_Name
+```
+![alt text](image-5.png)
