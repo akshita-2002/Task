@@ -13,3 +13,12 @@ Insert into Enrollments Values
 (5,5,3,'2024-03-20')
 ```
 ![alt text](image.png)
+
+#### QUESTION 3
+Update the email address of a teacher in the "Teachers" table.
+```sql
+Update Teachers 
+Set Email='sarahbrown123@gmail.com' 
+Where Teacher_ID=3;
+```
+![alt text](image-1.png)
