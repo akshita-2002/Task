@@ -22,3 +22,11 @@ Set Email='sarahbrown123@gmail.com'
 Where Teacher_ID=3;
 ```
 ![alt text](image-1.png)
+
+#### QUESTION 4
+Write an SQL query to delete a specific enrollment record, choosing based on the student and course.
+```sql
+Delete From Enrollments
+Where Student_ID=1 AND Course_ID=2;
+```
+![alt text](image-2.png)
