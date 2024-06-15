@@ -39,3 +39,12 @@ Set Teacher_ID=3
 where Course_ID = 1;
 ```
 ![alt text](image-3.png)
+
+#### QUESTION 6
+Write an SQL query to calculate the total payments made by a specific student.
+```sql
+Select Student_ID , sum(Amount) as TotalAmount
+From Payments
+Group By Student_ID;
+```
+![alt text](image-4.png)
