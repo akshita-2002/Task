@@ -87,3 +87,18 @@ From Teachers t Inner Join Courses c
 On t.Teacher_ID=c.Teacher_ID; 
 ```
 ![alt text](image-8.png)
+
+#### QUESTION 11
+Calculate the average number of students enrolled in each course using aggregate functions and subqueries.
+```sql
+Select Course_Name, (Select Avg(num_Students) 
+ From 
+ (Select Count(Student_ID) as num_Students
+ From Enrollments e
+ Where e.Course_ID=c.Course_ID
+ Group By e.Course_ID) As Course_Counts
+ ) As Average_of_Students
+ From Courses c;
+ ```
+ ![alt text](image-9.png)
+ 
