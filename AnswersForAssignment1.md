@@ -150,7 +150,7 @@ Identify students who are enrolled in more than one course.
 Select Student_ID 
 From Enrollments
 Group By Student_ID
-Having COUNT(Student_Id) >1
+Having COUNT(Course_Id) >1
 ```
 
 ![alt text](image-13.png)
