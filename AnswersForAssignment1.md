@@ -78,3 +78,12 @@ Join Enrollments e On s.Student_Id=e.Student_ID
 Join Courses c On e.Course_ID = c.Course_ID
 ```
 ![alt text](image-7.png)
+
+#### QUESTION 10
+List names of teachers and the courses they are assigned to.
+```sql
+Select (First_Name +' '+Last_Name) As Name , Course_Name
+From Teachers t Inner Join Courses c
+On t.Teacher_ID=c.Teacher_ID; 
+```
+![alt text](image-8.png)
