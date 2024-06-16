@@ -132,3 +132,14 @@ Group By Course_ID
 #### QUESTION 14
 Calculate the total payments made to courses taught by each teacher using subqueries.
 
+```sql
+Select (t.First_Name+' '+t.Last_Name)As Name,t.Teacher_Id , 
+(Select sum(Amount) From Payments p Where p.Student_ID
+In (
+Select  e.Student_ID 
+From Enrollments e
+Where e.Course_ID In (Select Course_ID From Courses c where c.Teacher_ID=t.Teacher_ID)
+)) As PaymentOFTeachers
+From Teachers t;
+```
+![alt text](image-12.png)
