@@ -87,3 +87,48 @@ From Teachers t Inner Join Courses c
 On t.Teacher_ID=c.Teacher_ID; 
 ```
 ![alt text](image-8.png)
+
+#### QUESTION 11
+Calculate the average number of students enrolled in each course using aggregate functions and subqueries.
+```sql
+Select Avg(Total_Count) As Average  From (
+Select Count(Course_Id) As Total_Count, Course_ID
+From Enrollments 
+Group BY Course_ID) 
+As AverageOfCOurses;
+ ```
+![alt text](image-9.png)
+
+
+ #### QUESTION 12
+ Identify the student(s) who made the highest payment using a subquery.
+ ```sql
+
+ Select (s.First_Name+' '+s.Last_Name) as Student_Name 
+ From Students s
+ Where s.Student_Id=(Select Student_ID From Payments 
+                     Where Amount = ( Select Max(AMount) 
+					                   From Payments))
+
+```
+![alt text](image-10.png)
+
+#### QUESTION 13
+Retrieve a list of courses with the highest number of enrollments using subqueries.
+```sql
+Select Course_Name,Course_Id 
+From Courses 
+Where Course_ID = (
+ Select Course_Id from Enrollments Group By Course_ID Having Count(Student_ID) = (
+Select Max(Count_of_Enrollments)As Highest
+ From (
+Select Course_ID , Count(Course_ID) As Count_of_Enrollments
+From Enrollments
+Group By Course_ID
+) As Maximum))
+```
+![alt text](image-11.png)
+
+#### QUESTION 14
+Calculate the total payments made to courses taught by each teacher using subqueries.
+
