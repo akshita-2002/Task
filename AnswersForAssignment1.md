@@ -101,4 +101,31 @@ Select Course_Name, (Select Avg(num_Students)
  From Courses c;
  ```
  ![alt text](image-9.png)
- 
+
+
+ #### QUESTION 12
+ Identify the student(s) who made the highest payment using a subquery.
+ ```sql
+SELECT 
+    s.first_name,
+    s.last_name,
+    (SELECT SUM(amount) 
+     FROM Payments 
+     WHERE student_id = s.student_id
+     GROUP BY student_id) AS total_payment
+FROM Students s
+WHERE (SELECT SUM(amount) 
+       FROM Payments 
+       WHERE student_id = s.student_id
+       GROUP BY student_id) = (
+           SELECT MAX(total_amount)
+           FROM (
+               SELECT SUM(amount) AS total_amount
+               FROM Payments
+               GROUP BY student_id
+           ) AS max_payments
+
+);
+
+![alt text](image-10.png)
+
