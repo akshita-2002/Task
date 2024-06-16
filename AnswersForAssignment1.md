@@ -143,3 +143,14 @@ Where e.Course_ID In (Select Course_ID From Courses c where c.Teacher_ID=t.Teach
 From Teachers t;
 ```
 ![alt text](image-12.png)
+
+#### QUESTION 15
+Identify students who are enrolled in more than one course.
+```sql
+Select Student_ID 
+From Enrollments
+Group By Student_ID
+Having COUNT(Student_Id) >1
+```
+
+![alt text](image-13.png)
