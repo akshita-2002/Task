@@ -68,3 +68,13 @@ From Students s FULL join Enrollments e
  Where Enrollment_ID IS NULL
  ```
  ![alt text](image-6.png)
+
+ #### QUESTION 9
+  Retrieve the first name and last name of students, along with the names of the courses they are enrolled in.
+  ```sql
+Select First_Name,Last_Name, c.Course_Name
+From Students s 
+Join Enrollments e On s.Student_Id=e.Student_ID
+Join Courses c On e.Course_ID = c.Course_ID
+```
+![alt text](image-7.png)
