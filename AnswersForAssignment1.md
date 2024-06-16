@@ -126,6 +126,24 @@ WHERE (SELECT SUM(amount)
            ) AS max_payments
 
 );
-
+```
 ![alt text](image-10.png)
+
+#### QUESTION 13
+Retrieve a list of courses with the highest number of enrollments using subqueries.
+```sql
+Select Course_Name , (Select Count(*) 
+From Enrollments e
+Where e.Course_ID=c.Course_ID
+Group By e.Course_Id) As Students_Count
+From Courses c
+Where (Select Count(*)
+From Enrollments e
+Where e.Course_ID=c.Course_ID
+Group By e.Course_ID ) = (Select Max(Count_of_Students) 
+                          From (Select Count(*) As Count_of_Students
+                          From Enrollments e
+                          Group By e.Course_Id) As Max_Enrollments);
+```
+![alt text](image-11.png)
 
