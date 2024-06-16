@@ -58,3 +58,13 @@ On c.Course_ID=e.Course_ID
 group by c.Course_Name
 ```
 ![alt text](image-5.png)
+
+#### QUESTION 8
+Find the names of students who have not enrolled in any course.
+```sql
+Select (First_Name +' '+Last_Name) As Name
+From Students s FULL join Enrollments e
+ ON s.Student_ID=e.Student_ID
+ Where Enrollment_ID IS NULL
+ ```
+ ![alt text](image-6.png)
